@@ -1,33 +1,27 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import {useQuery, useMutation} from '@tanstack/react-query'
+import { getPosts } from "./store";
 
 function App() {
-  const [posts, setPosts] = useState([]);
 
-  const postsQuery = useQuery({
-    queryKey: ["posts"],
-    queryFn: () => {
-      return (
-        axios.get('https://fakestoreapi.com/products/')
-        .then(response => response.data)
-        .catch((error) => {
-          console.error("Error Fetching Data:", error)
-        })
-      )
-    }, onSuccess: data => setPosts(data)
-  })
+  // const postsQuery = useQuery({
+  //   queryKey: ["posts"],
+  //   queryFn: () => getPosts()
+  // })
 
-  if(postsQuery.isLoading) return <h1>Loading ...</h1>
-  if(postsQuery.isError) return <pre>{JSON.stringify(postsQuery.error)}</pre>
+  // console.log(postsQuery.data);
+
+  // if(postsQuery.isLoading) return <h1>Loading ...</h1>
+  // if(postsQuery.isError) return <pre>{JSON.stringify(postsQuery.error)}</pre>
+
+  useEffect(() => {
+    getPosts()
+  }, [])
 
   return (
     <>
-      {posts.map((post, index) => {
-        return (
-          <h2 key={index}>{post.title}</h2>
-        )
-      })}
+      <h1>React Query</h1>
     </>
   )
 }

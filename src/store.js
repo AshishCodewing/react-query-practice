@@ -1,5 +1,5 @@
-import axios from "axios";
-
-function getPosts() {
-    axios.get('https://fakestoreapi.com/products/')  
+export function getPosts() {
+    fetch("/api/vans")
+        .then(res => res.json())
+        .then(data => console.log(data))
 }

@@ -10,7 +10,7 @@ function PostForm() {
         id: crypto.randomUUID(),
         name: '',
         description: '',
-        imageUrl: "https://assets.scrimba.com/advanced-react/react-router/the-cruiser.png",
+        imageUrl: '',
         price: '',
         type: '',
     })
@@ -61,6 +61,13 @@ function PostForm() {
                     placeholder='Price'
                     onChange={handleChange}
                     value={formData.price}
+                />
+                <input
+                    type="text"
+                    name="imageUrl"
+                    placeholder='imageUrl'
+                    onChange={handleChange}
+                    value={formData.imageUrl}
                 />
                 <input
                     type="text"

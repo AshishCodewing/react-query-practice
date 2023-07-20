@@ -2,6 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { getPosts, addPosts } from "./store";
+import { Link } from 'react-router-dom';
 
 function App() {
   const queryClient = useQueryClient()
@@ -25,7 +26,7 @@ function App() {
     onSuccess: () => {
       queryClient.invalidateQueries(["posts"])
     }
-  },
+  }
 
   )
 
@@ -36,7 +37,9 @@ function App() {
       {postsQuery.data.vans.map((van) => {
         return (
           <>
-            <h1 key={van.id}>{van.name}</h1>
+            <Link to={`/${van.id}`}>
+              <h1 key={van.id}>{van.name}</h1>
+            </Link>
           </>
         )
       })}

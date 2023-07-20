@@ -11,6 +11,17 @@ export async function getPosts() {
     }
 }
 
+export async function getPost(id) {
+    try {
+        const response = await axios.get(`/api/vans/${id}`);
+        const data = response.data;
+        return data;
+    } catch (error) {
+        console.error(error);
+        return []
+    }
+}
+
 export async function addPosts(newPost) {
     try {
         const response = await axios.post('/api/vans', newPost)

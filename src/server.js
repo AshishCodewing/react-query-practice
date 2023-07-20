@@ -22,10 +22,15 @@ createServer({
         this.get("/vans", (schema, request) => {
             return schema.vans.all()
         })
-        
+
         this.get("/vans/:id", (schema, request) => {
             const id = request.params.id
             return schema.vans.find(id)
+        })
+
+        this.post("/vans", (schema, request) => {
+            let attrs = JSON.parse(request.requestBody);
+            return schema.vans.create(attrs);
         })
     }
 })

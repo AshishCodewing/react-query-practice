@@ -15,7 +15,7 @@ function App() {
 
   const newVan = {
     id: crypto.randomUUID(),
-    name: 'test Van',
+    name: `test post ${crypto.randomUUID()}`,
     price: 90,
     imageUrl: "https://assets.scrimba.com/advanced-react/react-router/modest-explorer.png",
     type: "simple"
@@ -44,6 +44,9 @@ function App() {
         )
       })}
       <button onClick={() => newPostMutation.mutate(newVan)}>Add new Post</button>
+      <Link to='/post-form'>
+        Add Post
+      </Link>
     </>
   )
 }

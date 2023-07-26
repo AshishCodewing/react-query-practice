@@ -1,5 +1,6 @@
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
+import './index.css'
 import PostDetail from './PostDetail.jsx'
 import PostForm from './PostForm.jsx'
 import "./server"
@@ -16,7 +17,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Routes>
         <Route path='/' element={<App />} />
         <Route path='/:id' element={<PostDetail />} />
-        <Route path='/post-form' element={<PostForm />}/>
+        <Route path='/post-form' element={<PostForm />} />
       </Routes>
     </BrowserRouter>
     <ReactQueryDevtools initialIsOpen={false} />
